@@ -50,9 +50,9 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
 
-    /* body {
-        font-family: 'Roboto', sans-serif; //Not yet imported
-    } */
+    body{
+        margin: 0 0 70px 0;
+    }
 `;
 
 export { Reset, GlobalStyle };

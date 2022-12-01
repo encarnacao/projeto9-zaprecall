@@ -31,6 +31,8 @@ export default function Flashcard(props) {
                     setTurn={setTurn}
                     turn={turn}
                     setStatus={setStatus}
+                    setAnswered={props.setAnswered}
+                    answered={props.answered}
                 />
             </BackFaceDiv>
         </FlashcardDiv>
@@ -39,7 +41,7 @@ export default function Flashcard(props) {
 
 const FlashcardDiv = styled.div`
     width: 80%;
-    height: ${props => props.clicked ? "131px" : "65px"};
+    min-height: ${props => props.clicked ? "140px" : "65px"};
     background: ${props => props.clicked ? "transparent" : "#fff"};
     border-radius: 5px;
     box-shadow: ${props=>props.clicked?"none":"0px 4px 5px rgba(0,0,0,0.15)"};
@@ -53,7 +55,7 @@ const FlashcardDiv = styled.div`
 const FrontFaceDiv = styled.div`
     position: absolute;
     width: 100%;
-    height: ${props => props.clicked ? "131px" : "65px"};
+    height: 100%;
     background: ${props => props.clicked ? "#ffffd5" : "#fff"};
     border-radius: 5px;
     box-shadow: 0px 4px 5px rgba(0,0,0,0.15);

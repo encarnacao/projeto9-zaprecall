@@ -18,6 +18,7 @@ export default function Frontface(props){
     }
 
     function reset(){
+        props.setAnswered(props.answered+1);
         props.setTurn(false);
         props.setClicked(false);
     }

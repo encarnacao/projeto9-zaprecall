@@ -25,7 +25,7 @@ function TelaPrincipal() {
             <GlobalStyle />
             <Aplicativo>
                 <Logo />
-                <Cards cards={cards} />
+                <Cards cards={cards} answered={answered} setAnswered={setAnswered}/>
                 <Footer answered={answered} total={cards.length}/>
             </Aplicativo>
         </>
@@ -37,8 +37,6 @@ const Aplicativo = styled.div`
   flex-direction: column;
   align-items: center;
   background: #fb6b6b;
-  height: 100vh;
-  margin: 0 0 70px 0;
 `;
 
 export default TelaPrincipal;
