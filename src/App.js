@@ -1,29 +1,11 @@
-import styled from 'styled-components';
-import { Reset, GlobalStyle } from './Styles/GlobalStyles';
+import TelaPrincipal from "./components/TelaPrincipal";
+import { useState } from 'react';
 
 function App() {
-  return (
-    <div>
-      <Reset />
-      <GlobalStyle />
-      <Aplicativo>
-        <h1>
-          Hello World
-        </h1>
-      </Aplicativo>
-    </div>
-  );
-}
-
-const Aplicativo = styled.div`
-  text-align: center;
-  background: #323844;
-  height: 100vh;
-  h1{
-    color: #fff;
-    font-size: 50px;
-    font-weight: 700;
+  const [principal, setPrincipal] = useState(true);
+  if(principal){
+    return <TelaPrincipal />;
   }
-`;
+}
 
 export default App;
