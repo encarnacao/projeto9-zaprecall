@@ -12,8 +12,8 @@ export default function Frontface(props){
         reset();
     }
 
-    function  barelyZap(){
-        props.setStatus("barely");
+    function  partial(){
+        props.setStatus("partial");
         reset();
     }
 
@@ -25,11 +25,11 @@ export default function Frontface(props){
 
     return (
         <BackDiv clicked={props.clicked?1:0}>
-            <p>{props.answer}</p>
+            <TextDiv data-test="flashcard-text">{props.answer}</TextDiv>
             <ButtonsDiv>
-                <Button onClick={forgotten} color="#ff3030">Não lembrei</Button>
-                <Button onClick={barelyZap} color="#FF922E">Quase não lembrei</Button>
-                <Button onClick={zap} color="#2fbe34">Zap!</Button>
+                <Button data-test="no-btn" onClick={forgotten} color="#ff3030">Não lembrei</Button>
+                <Button data-test="partial-btn" onClick={partial} color="#FF922E">Quase não lembrei</Button>
+                <Button data-test="zap-btn" onClick={zap} color="#2fbe34">Zap!</Button>
             </ButtonsDiv>
         </BackDiv>
     );
@@ -40,17 +40,23 @@ const BackDiv = styled.div`
     height: 100%;
     display: ${props => (props.clicked?'flex':'none')};
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    > p{
-        font-family: 'Recursive', sans-serif;
-        font-size: 18px;
-        margin: 15px;
-    }
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 15px;
+`;
+
+const TextDiv = styled.div`
+    width: 100%;
+    font-family: 'Recursive', sans-serif;
+    font-size: 18px;
+    margin: 0 auto 10px auto;
 `;
 
 const ButtonsDiv = styled.div`
     display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 0 auto;
 
 `;
 
@@ -66,4 +72,5 @@ const Button = styled.button`
     vertical-align: middle;
     margin: 2px;
     border:none;
+    margin: 0;
 `;

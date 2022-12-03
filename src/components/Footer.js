@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export default function Footer({answered, total}) {
     return (
-        <DivFooter>
+        <DivFooter data-test="footer">
             <FooterContent>
                 <p>{answered}/{total} CONCLUIDO</p>
             </FooterContent>

@@ -52,6 +52,7 @@ const GlobalStyle = createGlobalStyle`
 
     body{
         margin: 0 0 70px 0;
+        background: #fb6b6b;
     }
 `;
 

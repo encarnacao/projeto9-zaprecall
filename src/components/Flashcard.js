@@ -9,7 +9,7 @@ export default function Flashcard(props) {
     const [turn, setTurn] = useState(false);
     const [status, setStatus] = useState("none");
     return (
-        <FlashcardDiv clicked={clicked ? 1 : 0} >
+        <FlashcardDiv data-test="flashcard" clicked={clicked ? 1 : 0} >
             <FrontFaceDiv clicked={clicked ? 1 : 0} turn={turn ? 1 : 0}>
                 <Question 
                 num={props.num} 
