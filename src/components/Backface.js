@@ -1,24 +1,37 @@
 import styled from "styled-components";
+import partialImage from '../img/icone_quase.svg';
+import zapImage from '../img/icone_certo.svg';
+import forgottenImage from '../img/icone_erro.svg';
+
+
+
 
 export default function Frontface(props){
-
     function zap(){
+        const result = <img data-test="zap-icon" src={zapImage} alt="zap" />;
+        props.setAnswers([...props.answers,result]);
+        props.setResult(result);
         props.setStatus("zap");
         reset();
     }
 
     function forgotten(){
+        const result = <img data-test="forgotten-icon" src={forgottenImage} alt="forgotten" />;
+        props.setAnswers([...props.answers,result]);
+        props.setResult(result);
         props.setStatus("forgotten");
         reset();
     }
 
     function  partial(){
+        const result = <img data-test="partial-icon" src={partialImage} alt="partial" />;
+        props.setAnswers([...props.answers,result]);
+        props.setResult(result);
         props.setStatus("partial");
         reset();
     }
 
     function reset(){
-        props.setCardText(`Pergunta ${props.num}`);
         props.setAnswered(props.answered+1);
         props.setTurn(false);
         props.setClicked(false);
@@ -26,7 +39,7 @@ export default function Frontface(props){
 
     return (
         <BackDiv clicked={props.clicked?1:0}>
-            <TextDiv>{props.answer}</TextDiv>
+            <TextDiv data-test="flashcard-text">{props.answer}</TextDiv>
             <ButtonsDiv>
                 <Button data-test="no-btn" onClick={forgotten} color="#ff3030">Não lembrei</Button>
                 <Button data-test="partial-btn" onClick={partial} color="#FF922E">Quase não lembrei</Button>

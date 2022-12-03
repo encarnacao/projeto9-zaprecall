@@ -1,27 +1,17 @@
 import styled from 'styled-components';
-import partialImage from '../img/icone_quase.svg';
-import zapImage from '../img/icone_certo.svg';
-import forgottenImage from '../img/icone_erro.svg';
 import playImage from '../img/seta_play.svg';
-
 
 export default function Question(props) {
     const colors = {zap: "#2fbe34", forgotten: "#ff3030", partial: "#FF922E"};
-    const imageCorrespondence = { zap: zapImage, partial: partialImage, forgotten: forgottenImage };
-    const dataTests = { zap: "zap-icon", partial: "partial-icon", forgotten: "no-icon" };
     const playable = props.status === "none";
     const textColor = colors[props.status];
-    const playButton = <img data-test="play-btn" onClick={() => {
-        props.setClicked(!props.clicked);
-        props.setCardText(props.question);
-    }} src={playImage} alt="play" />;
-    const result = <img data-test={dataTests[props.status]} src={imageCorrespondence[props.status]} alt={props.status}/>;
+    const playButton = <img data-test="play-btn" onClick={() => props.setClicked(!props.clicked)} src={playImage} alt="play" />;
     return (
         <QuestionDiv textColor={textColor} status={playable ? 0 : 1} clicked={props.clicked ? 1 : 0}>
             <div>
-                <h1 data-test="flashcard-text">{props.cardText}</h1>
+                <h1 data-test="flashcard-text">Pergunta {props.num}</h1>
             </div>
-            {playable?playButton:result}
+            {playable?playButton:props.result}
         </QuestionDiv>
     );
 }

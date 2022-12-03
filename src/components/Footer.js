@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
-export default function Footer({answered, total}) {
+export default function Footer({answered, total, answers}) {
     return (
         <DivFooter data-test="footer">
             <FooterContent>
                 <p>{answered}/{total} CONCLUIDO</p>
+                <Icons>{answers}</Icons>
             </FooterContent>
         </DivFooter>
     );
@@ -24,8 +25,21 @@ const DivFooter = styled.div`
 `;
 
 const FooterContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     > p{
         font-family: 'Recursive', sans-serif;
         font-size: 18px;
+    }
+`;
+
+
+const Icons = styled.div`
+    margin: 5px;
+    display: flex;
+    > img{
+        width: 23px;
+        margin: 0 2px;
     }
 `;

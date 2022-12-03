@@ -29,7 +29,7 @@ function TelaPrincipal() {
                     <img src={logo} alt="Logo" />
                     <h1>Zap ReCall</h1>
                 </DivLogo>
-                <Cards cards={cards} answered={answered} setAnswers={setAnswers} setAnswered={setAnswered} />
+                <Cards cards={cards} answered={answered} setAnswers={setAnswers} answers={answers} setAnswered={setAnswered} />
                 <Footer answered={answered} answers={answers} total={cards.length} />
             </Aplicativo>
         </>
