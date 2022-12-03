@@ -1,9 +1,11 @@
+import FinishText from './FinishText';
 import styled from 'styled-components';
 
-export default function Footer({answered, total, answers}) {
+export default function Footer({answered, total, answers, error}) {
     return (
         <DivFooter data-test="footer">
             <FooterContent>
+                {answered === total && <FinishText answers={answers} error={error}/>}
                 <p>{answered}/{total} CONCLUIDO</p>
                 <Icons>{answers}</Icons>
             </FooterContent>
@@ -22,6 +24,7 @@ const DivFooter = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 `;
 
 const FooterContent = styled.div`

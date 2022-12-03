@@ -7,6 +7,7 @@ import { useState } from 'react';
 
 function TelaPrincipal() {
     const [answered, setAnswered] = useState(0);
+    const [error, setError] = useState(false);
     const [answers, setAnswers] = useState([]);
 
     const cards = [
@@ -29,8 +30,8 @@ function TelaPrincipal() {
                     <img src={logo} alt="Logo" />
                     <h1>Zap ReCall</h1>
                 </DivLogo>
-                <Cards cards={cards} answered={answered} setAnswers={setAnswers} answers={answers} setAnswered={setAnswered} />
-                <Footer answered={answered} answers={answers} total={cards.length} />
+                <Cards cards={cards} answered={answered} setAnswers={setAnswers} answers={answers} setAnswered={setAnswered} setError={setError}/>
+                <Footer answered={answered} answers={answers} total={cards.length}  error={error} />
             </Aplicativo>
         </>
     );

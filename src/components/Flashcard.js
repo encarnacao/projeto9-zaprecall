@@ -39,6 +39,7 @@ export default function Flashcard(props) {
                     setResult={setResult}
                     answers={props.answers}
                     setAnswers={props.setAnswers}
+                    setError={props.setError}
                 />
             </BackFaceDiv>
         </FlashcardDiv>

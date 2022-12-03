@@ -2,7 +2,7 @@ import Flashcard from "./Flashcard";
 import styled from "styled-components";
 
 
-export default function Cards({ cards, answered, answers, setAnswered, setAnswers }) {
+export default function Cards({ cards, answered, answers, setAnswered, setAnswers, setError }) {
 
     return (
         <CardsDiv>
@@ -15,6 +15,7 @@ export default function Cards({ cards, answered, answers, setAnswered, setAnswer
             answered={answered}
             setAnswered={setAnswered}
             setAnswers={setAnswers}
+            setError={setError}
             />)}
         </CardsDiv>
     );

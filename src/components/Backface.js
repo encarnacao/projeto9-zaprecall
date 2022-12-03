@@ -16,7 +16,8 @@ export default function Frontface(props){
     }
 
     function forgotten(){
-        const result = <img data-test="forgotten-icon" src={forgottenImage} alt="forgotten" />;
+        const result = <img data-test="no-icon" src={forgottenImage} alt="no" />;
+        props.setError(true);
         props.setAnswers([...props.answers,result]);
         props.setResult(result);
         props.setStatus("forgotten");
