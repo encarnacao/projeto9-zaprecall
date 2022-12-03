@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 export default function Footer({answered, total, answers, error}) {
     return (
-        <DivFooter data-test="footer">
-            <FooterContent>
+        <DivFooter>
+            <FooterContent data-test="footer">
                 {answered === total && <FinishText answers={answers} error={error}/>}
                 <p>{answered}/{total} CONCLUIDO</p>
                 <Icons>{answers}</Icons>
