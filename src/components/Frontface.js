@@ -4,8 +4,11 @@ import turn from "../img/seta_virar.svg";
 export default function Frontface(props){
     return (
         <FrontDiv clicked={props.clicked?1:0}>
-            <p data-test="flashcard-text">{props.question}</p>
-            <Turn data-test="turn-btn" onClick={()=>props.setTurn(!props.turn)} src={turn} alt="Virar" />
+            <p>{props.question}</p>
+            <Turn data-test="turn-btn" onClick={()=>{
+                props.setTurn(!props.turn);
+                props.setCardText(props.answer);
+            }} src={turn} alt="Virar" />
         </FrontDiv>
     );
 }

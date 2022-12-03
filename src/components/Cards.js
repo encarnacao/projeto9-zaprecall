@@ -7,8 +7,8 @@ export default function Cards({ cards, answered, setAnswered }) {
     return (
         <CardsDiv>
             {cards.map((card, index) => <Flashcard 
-            key={card.num} 
-            num={card.num} 
+            key={index + 1} 
+            num={index + 1} 
             question={card.question} 
             answer={card.answer} 
             answered={answered}

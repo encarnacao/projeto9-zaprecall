@@ -8,6 +8,7 @@ export default function Flashcard(props) {
     const [clicked, setClicked] = useState(false);
     const [turn, setTurn] = useState(false);
     const [status, setStatus] = useState("none");
+    const [cardText, setCardText] = useState(`Pergunta ${props.num}`);
     return (
         <FlashcardDiv data-test="flashcard" clicked={clicked ? 1 : 0} >
             <FrontFaceDiv clicked={clicked ? 1 : 0} turn={turn ? 1 : 0}>
@@ -15,16 +16,23 @@ export default function Flashcard(props) {
                 num={props.num} 
                 status={status} 
                 clicked={clicked} 
-                setClicked={setClicked} />
+                setClicked={setClicked}
+                cardText = {cardText}
+                setCardText = {setCardText}
+                question={props.question}
+                />
                 <Frontface
                     clicked={clicked}
                     question={props.question}
                     setTurn={setTurn}
                     turn={turn}
+                    setCardText={setCardText}
+                    answer={props.answer}
                 />
             </FrontFaceDiv>
             <BackFaceDiv clicked={clicked ? 1 : 0} turn={turn ? 1 : 0}>
                 <Backface 
+                    num = {props.num}
                     clicked={clicked}
                     setClicked={setClicked}
                     answer={props.answer}
@@ -33,6 +41,7 @@ export default function Flashcard(props) {
                     setStatus={setStatus}
                     setAnswered={props.setAnswered}
                     answered={props.answered}
+                    setCardText={setCardText}
                 />
             </BackFaceDiv>
         </FlashcardDiv>

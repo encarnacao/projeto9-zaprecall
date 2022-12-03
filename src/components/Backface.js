@@ -18,6 +18,7 @@ export default function Frontface(props){
     }
 
     function reset(){
+        props.setCardText(`Pergunta ${props.num}`);
         props.setAnswered(props.answered+1);
         props.setTurn(false);
         props.setClicked(false);
@@ -25,7 +26,7 @@ export default function Frontface(props){
 
     return (
         <BackDiv clicked={props.clicked?1:0}>
-            <TextDiv data-test="flashcard-text">{props.answer}</TextDiv>
+            <TextDiv>{props.answer}</TextDiv>
             <ButtonsDiv>
                 <Button data-test="no-btn" onClick={forgotten} color="#ff3030">Não lembrei</Button>
                 <Button data-test="partial-btn" onClick={partial} color="#FF922E">Quase não lembrei</Button>
