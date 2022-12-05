@@ -37,10 +37,10 @@ export default function Frontface(props){
         props.setTurn(false);
         props.setClicked(false);
     }
-
+    const dataTestRender = props.clicked && props.turn;
     return (
         <BackDiv clicked={props.clicked?1:0}>
-            <TextDiv data-test="flashcard-text">{props.answer}</TextDiv>
+            <TextDiv data-test={dataTestRender?"flashcard-text":"none"}>{props.answer}</TextDiv>
             <ButtonsDiv>
                 <Button data-test="no-btn" onClick={forgotten} color="#ff3030">Não lembrei</Button>
                 <Button data-test="partial-btn" onClick={partial} color="#FF922E">Quase não lembrei</Button>

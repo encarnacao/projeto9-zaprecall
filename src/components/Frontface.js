@@ -2,9 +2,10 @@ import styled from "styled-components";
 import turn from "../img/seta_virar.svg";
 
 export default function Frontface(props){
+    const dataTestRender = props.clicked && !props.turn;
     return (
         <FrontDiv clicked={props.clicked?1:0}>
-            <p data-test="flashcard-text">{props.question}</p>
+            <p data-test={dataTestRender?"flashcard-text":"none"}>{props.question}</p>
             <Turn data-test="turn-btn" onClick={()=>props.setTurn(!props.turn)} src={turn} alt="Virar" />
         </FrontDiv>
     );

@@ -9,7 +9,7 @@ export default function Question(props) {
     return (
         <QuestionDiv textColor={textColor} status={playable ? 0 : 1} clicked={props.clicked ? 1 : 0}>
             <div>
-                <h1 data-test="flashcard-text">Pergunta {props.num}</h1>
+                <h1 data-test={!props.clicked?"flashcard-text":"none"}>Pergunta {props.num}</h1>
             </div>
             {playable?playButton:props.result}
         </QuestionDiv>
